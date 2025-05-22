@@ -4,10 +4,13 @@ This is a simple Todo App built with Laravel and Vue.js.
 
 ## Setup
 
-- Create a `database/database.sqlite` file for the database.
+- Create a `database/database.sqlite` file.
 - Copy `.env.example` to `.env`.
+- Run `composer install`.
+- Run `npm install`.
 - Run `php artisan key:generate`.
-- Run `php artisan serve` (or `composer run dev`) and `npm run dev` to start the app.
+- Run `php artisan migrate`.
+- Run `php artisan serve` and `npm run dev`.
 
 ## My work
 
