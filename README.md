@@ -2,6 +2,13 @@
 
 This is a simple Todo App built with Laravel and Vue.js.
 
+## Setup
+
+- Create a `database/database.sqlite` file for the database.
+- Copy `.env.example` to `.env`.
+- Run `php artisan key:generate`.
+- Run `php artisan serve` (or `composer run dev`) and `npm run dev` to start the app.
+
 ## My work
 
 ### I created a Todo model with a migration via this command:
@@ -44,9 +51,4 @@ add `htmlspecialchars(...)` or something similar.
 
 ## Summary
 
-The project itself wasn't too hard. The only problem I had is I had to work
-on a new computer and setting up Vite was a pain, but since AI is allowed I used it
-to help me find that I had to run `Set-ExecutionPolicy RemoteSigned` in my PowerShell
-to even allow `npm install`. After solving that problem I faced another issue
-that was solved by a ChatGPT suggested command: `npm uninstall lucide-vue-next` 
-and then an `npm install`.
+The project itself wasn’t too difficult. The only challenge I faced was working on a new computer, and setting up Vite was tricky. Since using AI was allowed, I used it to discover that I needed to run `Set-ExecutionPolicy RemoteSigned` in PowerShell to allow `npm install`. I also faced another issue which was resolved by a ChatGPT suggestion: `npm uninstall lucide-vue-next` followed by `npm install`.
