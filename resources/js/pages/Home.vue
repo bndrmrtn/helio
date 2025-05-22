@@ -2,7 +2,7 @@
     <Head title="Todos" />
     <TodosLayout>
         <main class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-            <article v-for="todo in todos.data" :key="todo.id" class="bg-neutral-100 rounded shadow border-neutral-300">
+            <section v-for="todo in todos.data" :key="todo.id" class="bg-neutral-100 rounded shadow border-neutral-300">
                 <header class="flex items-center justify-between border-b py-2 px-4 border-b-neutral-200">
                     <p>ID: {{ todo.id }}</p>
                     <p v-if="!todo.completed">Due date: {{ todo.due_human }}</p>
@@ -20,12 +20,15 @@
                           class="px-3 py-1 bg-blue-400 text-white rounded hover:bg-blue-500 transition cursor-pointer">
                         Edit
                     </Link>
-                    <Link v-if="!todo.completed" :href="route('todo.finish', todo.id)"
+                    <Link v-if="!todo.completed && new Date(todo.due_date) > new Date()" :href="route('todo.finish', todo.id)"
                           class="px-3 py-1 bg-green-400 text-white rounded hover:bg-green-500 transition cursor-pointer">
                         Finish
                     </Link>
                 </footer>
-            </article>
+            </section>
+            <section v-if="todos.data.length == 0 && todos.current_page == 1">
+                <h2 class="text-xl">Nothing to do.</h2>
+            </section>
         </main>
 
     <nav class="flex justify-center mt-6 space-x-2">
@@ -56,6 +59,7 @@ interface Todo {
     id: number;
     title: string;
     completed: boolean;
+    due_date: string
     due_human: string
     completed_in: boolean
 }
